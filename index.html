@@ -1,129 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Resume</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    
-    .container {
-      display: flex;
-    }
-    
-    .sidebar {
-      flex: 1;
-      padding: 20px;
-    }
-    
-    .content {
-      flex: 3;
-      padding: 20px;
-    }
-    
-    .tab {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #f0f0f0;
-      border: 1px solid #ccc;
-      border-radius: 5px 5px 0 0;
-      margin-right: 10px;
-      cursor: pointer;
-    }
-    
-    .tab:hover {
-      background-color: #ddd;
-    }
-    
-    .tab.active {
-      background-color: #ccc;
-      border-color: #999;
-    }
-    
-    .tab-content {
-      display: none;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-top: none;
-      border-radius: 0 0 5px 5px;
-      background-color: #fff;
-    }
-    
-    .tab-content.active {
-      display: block;
-    }
-    
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bree+Serif">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            background: #efefef;
+            font-family: 'Source Sans Pro', sans-serif;
+            color: #333;
+        }
+        @media (min-width: 600px) {
+            body {
+                padding: 60px 10px;
+            }
+        }
+        h1 {
+            margin: 0;
+            font-family: 'Bree Serif', serif;
+            font-size: 36px;
+        }
+        p {
+            margin-top: 20px;
+            margin-bottom: 0;
+            padding: 0;
+            font-size: 20px;
+            line-height: 1.5;
+        }
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 700px;
+            background: #e5e5e5;
+            box-shadow: 0 48px 80px -32px rgba(0,0,0,0.3);
+        }
+        .input {
+            position: absolute;
+            opacity: 0;
+        }
+        .label {
+            width: 100%;
+            padding: 20px 30px;
+            background: #e5e5e5;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 18px;
+            color: #7f7f7f;
+            transition: background 0.1s, color 0.1s;
+        }
+        .label:hover {
+            background: #d8d8d8;
+        }
+        .label:active {
+            background: #ccc;
+        }
+        .input:focus + .label {
+            z-index: 1;
+        }
+        .input:checked + .label {
+            background: #fff;
+            color: #000;
+        }
+        @media (min-width: 600px) {
+            .label {
+                width: auto;
+            }
+        }
+        .panel {
+            display: none;
+            padding: 20px 30px 30px;
+            background: #fff;
+        }
+        @media (min-width: 600px) {
+            .panel {
+                order: 99;
+            }
+        }
+        .input:checked + .label + .panel {
+            display: block;
+        }
+        .header-image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header-image {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="sidebar">
-      <img src="image1.jpg" alt="Your Picture">
-      <div class="popup">
-        <div class="tabs">
-          <input type="radio" id="tab1" name="tab" checked="true">
-          <label for="tab1">Personal Information</label>
-          <input type="radio" id="tab2" name="tab">
-          <label for="tab2">SECOND TAB</label>
-          <input type="radio" id="tab3" name="tab">
-          <label for="tab3">THIRD TAB</label>
-          <input type="radio" id="tab4" name="tab">
-          <label for="tab4">FOURTH TAB</label>
-          <input type="radio" id="tab5" name="tab">
-          <label for="tab5">FIFTH TAB</label>
-          <input type="radio" id="tab6" name="tab">
-          <label for="tab6">SIXTH TAB</label>
-          <div class="marker">
-            <div id="top"></div>
-            <div id="bottom"></div>
-          </div>
-        </div>
-      
-      </div>
-    </div>
-    <div class="content">
-      <div class="tab-content" id="personal">
-        <h2>Personal Information</h2>
-        <p>Your personal information goes here.</p>
-      </div>
-      <div class="tab-content" id="education">
-        <h2>Education</h2>
-        <p>Your education details go here.</p>
-      </div>
-      <div class="tab-content" id="experience">
-        <h2>Experience</h2>
-        <p>Your experience details go here.</p>
-      </div>
-      <!-- Add more tab content sections as needed -->
-    </div>
-  </div>
 
-  <script>
-    function openTab(evt, tabName) {
-      var i, tabContent, tabLinks;
-      tabContent = document.getElementsByClassName("tab-content");
-      for (i = 0; i < tabContent.length; i++) {
-        tabContent[i].style.display = "none";
-      }
-      tabLinks = document.getElementsByClassName("tab");
-      for (i = 0; i < tabLinks.length; i++) {
-        tabLinks[i].classList.remove("active");
-      }
-      document.getElementById(tabName).style.display = "block";
-      evt.currentTarget.classList.add("active");
-    }
-    // Open default tab
-    document.getElementById("personal").style.display = "block";
-    document.getElementsByClassName("tab")[0].classList.add("active");
-  </script>
+<div class="container">
+    <div class="header-image-container">
+        <img class="header-image" src="image1.jpg" alt="Your Image">
+    </div>
+
+    <header>
+        <h1>Your Name</h1>
+        <p>Sample Text</p>
+        <p></p>
+    </header>
+    <div class="tabs">
+        <input class="input" name="tabs" type="radio" id="tab-1" checked="checked"/>
+        <label class="label" for="tab-1">About Me</label>
+        <div class="panel">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <input class="input" name="tabs" type="radio" id="tab-2"/>
+        <label class="label" for="tab-2">Idntheme</label>
+        <div class="panel">
+          <p>Sample Text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <input class="input" name="tabs" type="radio" id="tab-3"/>
+        <label class="label" for="tab-3">Tekno Match</label>
+        <div class="panel">
+          <p>Sample text 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+      </div>
+    <section class="contact">
+        <h2>Contact Me</h2>
+        <p>Email: example@example.com</p>
+        <p>Phone: +1234567890</p>
+    </section>
+</div>
+
 </body>
 </html>
