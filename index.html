@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Resume</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .container {
+      display: flex;
+    }
+    
+    .sidebar {
+      flex: 1;
+      padding: 20px;
+    }
+    
+    .content {
+      flex: 3;
+      padding: 20px;
+    }
+    
+    .tab {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 5px 5px 0 0;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    
+    .tab:hover {
+      background-color: #ddd;
+    }
+    
+    .tab-content {
+      display: none;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-top: none;
+      border-radius: 0 0 5px 5px;
+      background-color: #fff;
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="your_picture.jpg" alt="Your Picture">
+      <div class="tabs">
+        <div class="tab" onclick="openTab(event, 'personal')">Personal</div>
+        <div class="tab" onclick="openTab(event, 'education')">Education</div>
+        <div class="tab" onclick="openTab(event, 'experience')">Experience</div>
+        <!-- Add more tabs as needed -->
+      </div>
+    </div>
+    <div class="content">
+      <div class="tab-content" id="personal">
+        <h2>Personal Information</h2>
+        <p>Your personal information goes here.</p>
+      </div>
+      <div class="tab-content" id="education">
+        <h2>Education</h2>
+        <p>Your education details go here.</p>
+      </div>
+      <div class="tab-content" id="experience">
+        <h2>Experience</h2>
+        <p>Your experience details go here.</p>
+      </div>
+      <!-- Add more tab content sections as needed -->
+    </div>
+  </div>
+
+  <script>
+    function openTab(evt, tabName) {
+      var i, tabContent, tabLinks;
+      tabContent = document.getElementsByClassName("tab-content");
+      for (i = 0; i < tabContent.length; i++) {
+        tabContent[i].style.display = "none";
+      }
+      tabLinks = document.getElementsByClassName("tab");
+      for (i = 0; i < tabLinks.length; i++) {
+        tabLinks[i].classList.remove("active");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.classList.add("active");
+    }
+    // Open default tab
+    document.getElementById("personal").style.display = "block";
+    document.getElementsByClassName("tab")[0].classList.add("active");
+  </script>
+</body>
+</html>

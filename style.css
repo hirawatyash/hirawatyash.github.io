@@ -1,0 +1,20 @@
+.tab {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add smooth transition effect */
+  }
+  
+  .tab:hover {
+    background-color: #ddd;
+  }
+  
+  .tab.active {
+    background-color: #ccc; /* Change background color of active tab */
+    border-color: #999; /* Change border color of active tab */
+  }
+  
